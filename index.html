@@ -1,0 +1,20 @@
+<script type="text/javascript" src="./index.js"></script>
+<video id="webrtc" controls autoplay></video>
+<script>
+    var p = document.getElementById('webrtc');
+  const { Player, PLAYER_EVENTS } = window.FlussonicWebRTC;
+//   // ...
+    var url='http://kcod-origin-dg63.wasd.tv/l1';
+    var opts = {
+       autoplay: true
+    }
+    var shouldLog = true
+  const player = new Player(p, url, opts, shouldLog);
+  player.on(PLAYER_EVENTS.PLAY, (msg) => console.log(`Play: ${msg}`));
+player.on(PLAYER_EVENTS.DEBUG, (msg) => console.log(`Debug: ${msg}`));
+player.play();
+// ...
+player.stop();
+// ...
+player.destroy();
+</script> 
